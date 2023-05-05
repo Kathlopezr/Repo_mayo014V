@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/estilos.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Api de post</title>
+    <script>
+        let url='https://jsonplaceholder.typicode.com/posts';
+        fetch(url)
+            .then(Response => Response.json())
+            .then(data => mostrarData(data))
+            .catch (error => console.log(error))
+        const mostrarData=(data)=>{
+            console.log(data)
+            let body=""
+            for(var i=0; i<data.length; i++) 
+            {
+                body+=`<tr>
+                    <td><p class="textoDir"> ${data[i].userId=2}</p></td>
+                    <td><p class="textoDir"> ${data[i].id}</p></td>
+                    <td><p class="textoDir"> ${data[i].title}</p></td>
+                    <td><p class="textoDir"> ${data[i].body}</p></td>
+                    </tr>`
+            }
+            document.getElementById('data').innerHTML=body;
+
+        }
+    </script>
+     <style>
+        .textoDir{
+            color: rgb(6, 109, 168);
+            text-emphasis-color: pink;
+            font-family: inherit;
+            padding: 7px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+
+        <h1>Api de post</h1>
+        <table class="table">
+            <thead>
+                <tr id="estiloInicio">
+                    <th>User</th>
+                    <th>Id</th>
+                    <th>Titulo</th>
+                    <th>tittle</th> 
+                </tr>
+            </thead>
+            <tbody id="data">
+
+            </tbody>
+    
+</body>
+</html>
